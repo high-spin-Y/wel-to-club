@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'index/css/index.css' %}" rel="stylesheet"/>
+    <title>Upload</title>
+</head>
+<body>
+<ul>
+    <li><a href="/index/">Applicaiton Home</a></li>
+    <li><a href="/index/course">Select courses</a></li>
+    <li><a href="/index/upload">Document upload</a></li>
+    <li><a href="/index/orientation">Orientation</a></li>
+    <li style="float:right"><a href="/logout/">Sign out</a></li>
+</ul>
+     <div class="col">
+                <form action="/index/mdupload/" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                      {{ MDform }}
+     </div>
+     {% if message %}
+       <div style="width: 600px;" class="alert alert-warning"> {{ message }} </div>
+     {% endif %}
+                  <div>
+                      <button type="submit" class="btn btn-primary">Upload</button>
+                  </div>
+                </form>
+   <div>
+   <h4><p style="font-family:arial"> {{ mdmessage }} </h4>
+   </div>
+   <div>
+       <a href="/index/upload">Back to home page</a>
+   </div>
+   </body>
+</html>
+
+

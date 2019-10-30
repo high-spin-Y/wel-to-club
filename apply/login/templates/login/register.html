@@ -1,0 +1,113 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'register/css/register.css' %}" rel="stylesheet"/>
+    <title>Registration page</title>
+  </head>
+  <body>
+    <div class="container">
+            <div class="col", style="background: rgba(255,255,255,.5);">
+                <form class="form-register" action="/register/" method="post">
+
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+
+                  {% csrf_token %}
+                  <h3 class="text-center">Application to ****************</h3>
+                  <div><p><h6 class="font-weight-normal"><small>Fields with <font color="red">*</font> is mandatory and unchangeable, but you may change your courses after registration. </p>                    
+                  <div class="form-group">
+                      {{ register_form.username.label_tag }}<font color="red">*</font>
+                      {{ register_form.username}}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.password1.label_tag }}<font color="red">*</font>
+                      {{ register_form.password1 }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.password2.label_tag }}<font color="red">*</font>
+                      {{ register_form.password2 }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.first_name.label_tag }}<font color="red">*</font>
+                      {{ register_form.first_name}}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.last_name.label_tag }}<font color="red">*</font>
+                      {{ register_form.last_name}}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.email.label_tag }}<font color="red">*</font>
+                      {{ register_form.email }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.phone.label_tag }}<font color="red">*</font>
+                      {{ register_form.phone }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.univ.label_tag }}<font color="red">*</font>
+                      {{ register_form.univ }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.major.label_tag }}<font color="red">*</font>
+                      {{ register_form.major }}
+                  </div>
+
+                  <div><p><h6 class="font-weight-normal"><small>Fields with <font color="red">*</font> is mandatory and unchangeable, but you may change your courses after registration. </small></p></h6></div>
+                  <div class="form-group">
+                      {{ register_form.classchoice1.label_tag }}
+                      {{ register_form.classchoice1 }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.classchoice2.label_tag }}
+                      {{ register_form.classchoice2 }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.classchoice3.label_tag }}
+                      {{ register_form.classchoice3 }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.classchoice4.label_tag }}
+                      {{ register_form.classchoice4 }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.hesfchoice.label_tag }}
+                      {{ register_form.hesfchoice }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.year_in_school.label_tag }}
+                      {{ register_form.year_in_school }}
+                  </div>
+                  <div class="form-group">
+                      {{ register_form.gender.label_tag }}
+                      {{ register_form.gender }}
+                  </div>
+
+<div><h6><small><p>By clicking this register button, you will submit all these information for registration to *********. We will never share these information to a third part. </p></small></h6></div>
+                  <div align="right">
+                      <button type="submit" class="btn btn-primary">Register</button>
+                  </div>
+                  <div><p><h6 class="font-weight-normal"><small>If you already registered, please back to login page to login. By clicking this button below, <font color="red"> ALL YOUR INPUT WILL BE DISCARDED. </font></small> </h6></p></div>
+                  <div align="right">
+                     <button type="button" class="btn btn-primary" onclick="window.location.href='/login/'">Back to login</button>
+                  </div>
+                </form>
+            </div>
+    </div> <!-- /container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {#    以下三者的引用顺序是固定的#}
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

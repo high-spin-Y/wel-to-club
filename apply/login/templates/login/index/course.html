@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'index/css/index.css' %}" rel="stylesheet"/>
+    <title>Courses</title>
+</head>
+<body>
+<ul>
+    <li><a href="/index/">Application Home</a></li>
+    <li><a href="/index/course">Select courses</a></li>
+    <li><a href="/index/upload">Document upload</a></li>
+    <li><a href="/index/orientation">Orientation</a></li>
+    <li style="float:right"><a href="/logout/">Sign out</a></li>
+</ul>
+  <div>
+    <h3><p style="font-family: arial"> Welcome {{ request.session.user_name }}!</p></h3>
+  </div>
+  <div>
+    <h3 style="font-family: arial">{{ message }}</h3>
+    <h3 style="font-family: arial">{{ hesfmessage }}</h3>
+    <h3><p style="font-family:arial"><b>You may update this course selection below.</b></h3>
+    <h3><p style="font-family: arial">Please select no more than three STEM classes.</h3>
+    <h3><p style="font-family: arial">Please take one humanities course or General Education Requirement.</h3>
+    <h4><p style="font-family:arial">Choice 1: {{ user.classchoice1 }} : {{ user.get_classchoice1_display }}</h4>
+    <h4><p style="font-family:arial">Choice 2: {{ user.classchoice2 }} : {{ user.get_classchoice2_display }}</h4>
+    <h4><p style="font-family:arial">Choice 3: {{ user.classchoice3 }} : {{ user.get_classchoice3_display }}</h4>
+    <h4><p style="font-family:arial">Choice 4: {{ user.classchoice4 }} : {{ user.get_classchoice4_display }}</h4>
+    <h4><p style="font-family:arial">Choice 5: {{ user.hesfchoice }} : {{ user.get_hesfchoice_display }}</h4>
+  </div>              
+                <form class="form-register" action="/index/course" method="post">
+                  {% csrf_token %}
+                 <div>
+                  <p>
+                      {{ classchoice_form.classchoice1.label_tag }}
+                      {{ classchoice_form.classchoice1 }}
+                  <button type="submit" name="submit_choice1" class="btn btn-primary">Update</button>
+                  </p>
+                  <p>
+                      {{ classchoice_form.classchoice2.label_tag }}
+                      {{ classchoice_form.classchoice2 }}
+                  <button type="submit" name="submit_choice2" class="btn btn-primary">Update</button>
+                  </p>
+                  <p>
+                      {{ classchoice_form.classchoice3.label_tag }}
+                      {{ classchoice_form.classchoice3 }}
+                  <button type="submit" name="submit_choice3" class="btn btn-primary">Update</button>
+                  </p>
+                  <p>
+                      {{ classchoice_form.classchoice4.label_tag }}
+                      {{ classchoice_form.classchoice4 }}
+                  <button type="submit" name="submit_choice4" class="btn btn-primary">Update</button>
+                  </p>
+                  <p>
+                      {{ classchoice_form.hesfchoice.label_tag }}
+                      {{ classchoice_form.hesfchoice }}
+                  <button type="submit" name="submit_choice5" class="btn btn-primary">Update</button>
+                  </p>
+                  </div>
+                </form>
+</body>
+</html>

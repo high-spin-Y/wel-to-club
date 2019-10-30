@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'index/css/index.css' %}" rel="stylesheet"/>
+    <title>Upload</title>
+</head>
+<body>
+<BODY BGCOLOR=#D6EAF8 TEXT=#000000>
+<ul>
+    <li><a href="/index/">Application Home</a></li>
+    <li><a href="/index/course">Select courses</a></li>
+    <li><a href="/index/upload">Document upload</a></li>
+    <li><a href="/index/orientation">Orientation</a></li>
+    <li style="float:right"><a href="/logout/">Sign out</a></li>
+</ul>
+    <div>
+        <h2 style="font-family:arial">To upload or change your documents, please click on the buttons below. </h2>
+    </div>
+    <div>
+        <h3 style="font-family:arial">{{ psmessage }}</h3>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/index/psupload'">Personal Statement Upload</button>
+    </div>
+    <div>
+    <h3 style="font-family:arial">{{ rlmessage }}</h3>
+<button type="button" class="btn btn-primary" onclick="window.location.href='/index/rlupload'">Letter of Recommendation Upload</button>
+    </div>
+    <div>
+    <h3 style="font-family:arial">{{ mdmessage }}</h3>
+<button type="button" class="btn btn-primary" onclick="window.location.href='/index/mdupload'">Medical Background Upload</button>
+    <h5 style="font-family:arial">For your own health and safety during the program we ask that you inform that program personnel if you have any serious ongoing medical concerns, such as asthma, diabetes, epilepsy, ADHD, depression or any similar chronic condition that may require medication or medical supervision. This information is not part of the application process, but can be useful if you encouanter any difficulties during your extened visit to another country.</h5>
+ </div>
+</body>
+</html>

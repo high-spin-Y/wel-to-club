@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'index/css/index.css' %}" rel="stylesheet"/>
+    <title>Application Home</title>
+</head>
+<body>
+  <ul>
+      <li><a href="/index/">Application Home</a></li>
+      <li><a href="/index/course">Select courses</a></li>
+      <li><a href="/index/upload">Document upload</a></li>
+      <li><a href="/index/orientation">Orientation</a></li>
+      <li style="float:right"><a href="/logout/">Sign out</a></li>
+  </ul>
+  <div>
+    <h3><p style="font-family: arial"> Welcome {{ request.session.user_name }}!</p></h3>
+  </div>
+  <div style="width=40%; height=100%">
+     <h3><p style="font-family:arial">You may update this course selection in the navigation bar or <a style="white-space:nowrap;" href="/index/course">here.</a></h3>
+     <h4 style="font-family: arial">{{ message }}</h4>
+     <h4 style="font-family: arial">{{ hesfmessage }}</h4>
+     <h4><p style="font-family:arial"><b>Here are the classes you have selected:</b></h4>
+     <h4><p style="font-family:arial">{{ user.classchoice1 }} : {{ user.get_classchoice1_display }}</h4>
+     <h4><p style="font-family:arial">{{ user.classchoice2 }} : {{ user.get_classchoice2_display }}</h4>
+     <h4><p style="font-family:arial">{{ user.classchoice3 }} : {{ user.get_classchoice3_display }}</h4>
+     <h4><p style="font-family:arial">{{ user.classchoice4 }} : {{ user.get_classchoice4_display }}</h4>
+     <h4><p style="font-family:arial">{{ user.hesfchoice }} : {{ user.get_hesfchoice_display }}</h4>
+     <h4><p style="font-family:arial">The courses are offered for transfer credit to your institution.<h4>
+  </div>
+  <div style="width=40%; height=100%">
+    <h3><p style="font-family:arial">You may upload or change your documents in the navigation bar or <a style="white-space:nowrap;" href="/index/upload">here.</a></h3>
+    <h4><p style="font-family:arial"> {{ psmessage }} </h4>
+    <h4><p style="font-family:arial"> {{ rlmessage }} </h4>
+    <h4><p style="font-family:arial"> {{ mdmessage }} </h4>
+  </div>
+</html>
